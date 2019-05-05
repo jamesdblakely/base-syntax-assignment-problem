@@ -8,7 +8,8 @@ class App extends Component {
     username: [
       "jess",
       "haper"
-    ]
+    ],
+    bottomText: 'Test'
   }
 
   changeusername = (newUserName) => {
@@ -17,6 +18,12 @@ class App extends Component {
         newUserName,
         "haper"
       ]
+    })
+  }
+
+  changetest = (event) => {
+    this.setState({
+      bottomText: event.target.value
     })
   }
 
@@ -35,11 +42,14 @@ class App extends Component {
           <li>Add two-way-binding to your input (in UserInput) to also display the starting username</li>
           <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
         </ol>
-        <UserInput />
+        <UserInput
+          changed={this.changetest}
+          bottom={this.state.bottomText} />
         <UserOutput userName={this.state.username[0]} />
         <UserOutput
           click={this.changeusername.bind(this, 'David')}
-          userName="joe" />
+          userName="joe"
+          bottom={this.state.bottomText} />
       </div>
     );
   }

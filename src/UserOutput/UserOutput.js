@@ -3,9 +3,9 @@ import "./UserOutput.css";
 
 const useroutput = (props) => {
     return (
-      <div>
+      <div className="card">
         <p onClick={props.click}>test {props.userName}</p>
-        <p>test 2</p>
+        <p>{props.bottom} 2</p>
       </div>
     )
 };
