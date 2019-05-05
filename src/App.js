@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import UserInput from './UserInput/UserInput.js'
-import UserOutput from './UserOutput/UserOutput.js'
+import UserInput from './UserInput/UserInput';
+import UserOutput from './UserOutput/UserOutput';
 
 class App extends Component {
   state = {
@@ -11,8 +11,7 @@ class App extends Component {
     ]
   }
 
-  changeUserName = (newUserName) => {
-    console.log(newUserName);
+  changeusername = (newUserName) => {
     this.setState({
       username: [
         newUserName,
@@ -24,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ol>
+        <ol onClick={() => this.changeusername('David')}>
           <li>Create TWO new components: UserInput and UserOutput</li>
           <li>UserInput should hold an input element, UserOutput two paragraphs</li>
           <li>Output multiple UserOutput components in the App component (any paragraph texts of your choice)</li>
@@ -39,11 +38,12 @@ class App extends Component {
         <UserInput />
         <UserOutput userName={this.state.username[0]} />
         <UserOutput
-          userName="mac"
-          onClick={ () => this.changeUserName('David') } />
+          click={this.changeusername.bind(this, 'David')}
+          userName="joe" />
       </div>
     );
   }
 }
-
+//this.changeusername.bind(this, 'Karin')
+//this.changeusername.bind(this, 'David')
 export default App;
